@@ -1,0 +1,48 @@
+.body{
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    background-color: azure;
+    font-family: sans-serif;
+}
+header{
+    width: 80%;
+    height: 80px;
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom:20px;
+    background-color: darkkhaki;
+}
+nav{
+    display:block;
+}
+button{
+    width: 300px;
+    background-color: lightseagreen;
+    height: 40px;
+}
+.rd{
+    margin-right: 20%;
+}
+.rd label{
+    display: flex;
+    padding: 10%;
+}
+
+.container{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(20,25px);
+    grid-template-rows: repeat(20,25px);
+    grid-row-gap: 2px;
+    grid-column-gap: 2px;
+}
+
+.node{
+    background-color: darkcyan;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
