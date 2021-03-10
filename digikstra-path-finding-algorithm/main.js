@@ -36,6 +36,12 @@ function createNode(row, col, weight){
         sn[1].checked=false;
         sn[1].style.visibility="hidden";
     }
+    if(sn[2].checked)  {
+        
+        var endnode = document.querySelector(`div[row="${x}"][col="${y}"]`);
+        endnode.style.backgroundColor = "#000";
+        endnode.setAttribute("wall",true) ; 
+    }
     if(sn.visibility="hidden"){
         var btn = document.querySelector(".start");
         btn.style.visibility="visible";
@@ -124,9 +130,10 @@ function start() {
 
 
 function checkNode(row, col, curr, checker, seen, counter){
-    if (row >= 0 && col >= 0 && row <= 19 && col <=19 ) {
+    if (row >= 0 && col >= 0 && row <= 19 && col <=19 && !curr.hasAttribute('wall')) {
         var node = document.querySelector(`div[row="${row}"][col="${col}"]`);
 
+        
         var cost = Math.min(parseInt(curr.getAttribute("cost")) + parseInt(node.getAttribute("weight")),node.getAttribute("cost"));
 
         if (cost < node.getAttribute("cost")) {
@@ -134,8 +141,14 @@ function checkNode(row, col, curr, checker, seen, counter){
             node.setAttribute("cost",cost);
         }
 
-        changeColor(node, counter, cost);
-        changeColor(curr, counter, false);
+        if(!curr.hasAttribute('wall')){
+            changeColor(curr, counter, false);
+        }
+        if(!node.hasAttribute('wall')){
+            changeColor(node, counter, cost);
+        }
+       
+
 
         if (!seen.includes(node)) {
             checker.push(node);
