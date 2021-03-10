@@ -98,6 +98,9 @@ function start() {
         let c = checkNode(row, leftCol, curr, checker, seen, counter);
         let d = checkNode(row, rightCol, curr, checker, seen, counter);
         counter++;
+        if(curr.hasAttribute('endnode')){
+            checker.length=0;
+        }
     }
 
     setTimeout(() => {
